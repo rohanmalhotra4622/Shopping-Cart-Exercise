@@ -35,7 +35,7 @@ products = [
 # Information Capture Input
 
 while True:
-    selected_id = input('Please input a product identifier:')
+    selected_id = input('Please input a product identifier:')  # inputs
     #print(type(selected_id))
     if selected_id =='DONE':
         break
