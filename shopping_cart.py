@@ -34,11 +34,19 @@ products = [
 
 # Information Capture Input
 
-while True:
-    selected_id = input('Please input a product identifier:')  # inputs
-    #print(type(selected_id))
-    if selected_id =='DONE':
-        break
+#while True:
+#    selected_id = input('Please input a product identifier:')  
+#    #print(type(selected_id))
+#    if selected_id =='DONE':
+#        break
+
+selected_id = input('Please input a product identifier:')  
+matching_products = [p for p in products if p['id'] == int(selected_id) ]
+matching_product = matching_products[0]
+print(matching_product , type(matching_product) , sep ='|')
+print("SELECTED PRODUCT:  " + matching_product['name'] + ' ' + str(matching_product['price']))
+
+
 
 
 
