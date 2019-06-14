@@ -1,4 +1,3 @@
-#print('testing')
 
 # shopping_cart.py
 
@@ -33,15 +32,17 @@ products = [
 # TODO: write some Python code here to produce the desired output
 
 # Information Capture Input
-
-#while True:
-#    selected_id = input('Please input a product identifier:')  
-#    #print(type(selected_id))
-#    if selected_id =='DONE':
-#        break
+print('    ')  # to make it more appealing to the eye and easier to read
+print('---------------------')
+print('Gramercy Grocery Store')
+print('---------------------')
+print('Website: ' + 'gramercy_grocery.com')
+print('phone: ' + '212-111-0000')
+print('---------------------')
 
 total_price = 0
 selected_ids = []
+tax = .085
 
 while True:
     selected_id = input('Please input a product identifier:')  
@@ -52,16 +53,26 @@ while True:
 
 # Information capture output
 #print(selected_ids)
-
-for selected_id in selected_ids:
-    matching_products = [p for p in products if str(p['id']) == str(selected_id)]
+print('---------------------')
+print('SHOPPING CART ITEMS:')
+for id in selected_ids:
+    matching_products = [p for p in products if str(p['id']) == str(id)]
     matching_product = matching_products[0]
     total_price = total_price + matching_product['price']
-    print('SELECTED PRODUCT: ' + matching_product['name'] + ' ' + str(matching_product['price']))
-print('TOTAL PRICE: ' + str(total_price))
-
+    #print('SELECTED PRODUCT: ' + matching_product['name'] + ' ' + str(matching_product['price']))
+    print('  +  ' + matching_product['name'] + ' ' + ' ($' + '{0:.2f}'.format(matching_product['price']) + ')')
+#print('TOTAL PRICE: ' + str(total_price))
+print('---------------------')
+#print('SUBTOTAL: ' + ' ($' + '{0:.2f}'.format(total_price) + ')')
+print('SUBTOTAL: ' + ' $' + '{0:.2f}'.format(total_price))
+total_tax = total_price * tax 
+#print('NYC SALES TAX (8.5%):' + '$' + '{0:.3}'.format(total_price * tax ))
+print('NYC SALES TAX (8.5%):'  + ' $' + '{0:.2f}'.format(total_tax))
+final_total = total_price + total_tax
+print('TOTAL PRICE:  ' + ' $' + '{0:.2f}'.format(final_total))
+print('---------------------')
+print('THANK YOU FOR YOUR BUSINESS! PLEASE COME AGAIN')
 #Desired Output
-
 #Please input a product identifier: 1
 #Please input a product identifier: 8
 #Please input a product identifier: 6
