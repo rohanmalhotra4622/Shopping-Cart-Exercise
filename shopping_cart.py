@@ -3,6 +3,8 @@
 
 #from pprint import pprint
 
+import datetime
+
 products = [
     {"id":1, "name": "Chocolate Sandwich Cookies", "department": "snacks", "aisle": "cookies cakes", "price": 3.50},
     {"id":2, "name": "All-Seasons Salt", "department": "pantry", "aisle": "spices seasonings", "price": 4.99},
@@ -32,14 +34,17 @@ products = [
 # TODO: write some Python code here to produce the desired output
 
 # Information Capture Input
+
+now = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
 print('    ')  # to make it more appealing to the eye and easier to read
 print('---------------------')
-print('Gramercy Grocery Store')
-print('---------------------')
-print('Website: ' + 'gramercy_grocery.com')
+print('GREEN FOODS GROCERY')
+print('Website: ' + 'green_foods_grocery.com')
 print('phone: ' + '212-111-0000')
 print('---------------------')
-
+print('CHECKOUT AT: ' + now)
+print('---------------------')
 total_price = 0
 selected_ids = []
 tax = .085
@@ -61,26 +66,16 @@ for id in selected_ids:
     total_price = total_price + matching_product['price']
     #print('SELECTED PRODUCT: ' + matching_product['name'] + ' ' + str(matching_product['price']))
     print('  +  ' + matching_product['name'] + ' ' + ' ($' + '{0:.2f}'.format(matching_product['price']) + ')')
-#print('TOTAL PRICE: ' + str(total_price))
+
 print('---------------------')
-#print('SUBTOTAL: ' + ' ($' + '{0:.2f}'.format(total_price) + ')')
 print('SUBTOTAL: ' + ' $' + '{0:.2f}'.format(total_price))
 total_tax = total_price * tax 
-#print('NYC SALES TAX (8.5%):' + '$' + '{0:.3}'.format(total_price * tax ))
 print('NYC SALES TAX (8.5%):'  + ' $' + '{0:.2f}'.format(total_tax))
 final_total = total_price + total_tax
 print('TOTAL PRICE:  ' + ' $' + '{0:.2f}'.format(final_total))
 print('---------------------')
 print('THANK YOU FOR YOUR BUSINESS! PLEASE COME AGAIN')
-#Desired Output
-#Please input a product identifier: 1
-#Please input a product identifier: 8
-#Please input a product identifier: 6
-#Please input a product identifier: 8
-#Please input a product identifier: 8
-#Please input a product identifier: 16
-#Please input a product identifier: 12
-#Please input a product identifier: DONE
+
 #> ---------------------------------
 #> GREEN FOODS GROCERY
 #> WWW.GREEN-FOODS-GROCERY.COM
