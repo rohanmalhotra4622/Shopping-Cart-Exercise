@@ -1,6 +1,4 @@
 
-# shopping_cart.py
-
 #from pprint import pprint
 
 import datetime
@@ -32,7 +30,6 @@ products = [
 #print(products)
 # pprint(products)
 
-# TODO: write some Python code here to produce the desired output
 
 # Information Capture Input
 
@@ -77,7 +74,6 @@ while True:
     except ValueError:
         print('Invalid entry; please try again!')
 
-#print(selected_ids)
 
 # Print product name and prices
 
