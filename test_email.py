@@ -4,8 +4,9 @@ from sendgrid import SendGridAPIClient
 from sendgrid.helpers.mail import Mail
 
 load_dotenv()
-SENDGRID_API_KEY = os.environ.get("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", "OOPS, please set env var called 'SENDGRID_API_KEY'")
-MY_ADDRESS = os.environ.get("rm4622@stern.nyu.edu", "OOPS, please set env var called 'MY_EMAIL_ADDRESS'")
+
+SENDGRID_API_KEY = os.environ.get("SENDGRID_API_KEY", "OOPS, please set env var called 'SENDGRID_API_KEY'")
+MY_ADDRESS = os.environ.get("MY_EMAIL_ADDRESS", "OOPS, please set env var called 'MY_EMAIL_ADDRESS'")
 
 client = SendGridAPIClient(SENDGRID_API_KEY) #> <class 'sendgrid.sendgrid.SendGridAPIClient>
 print("CLIENT:", type(client))
@@ -13,26 +14,7 @@ print("CLIENT:", type(client))
 subject = "Your Receipt from the Green Grocery Store"
 
 html_content = "Hello World"
-
-print("HTML:", html_content)
-
-message = Mail(from_email=MY_ADDRESS, to_emails=MY_ADDRESS, subject=subject, html_content=html_content)
-
-try:
-    response = client.send(message)
-
-    print("RESPONSE:", type(response)) #> <class 'python_http_client.client.Response'>
-    print(response.status_code) #> 202 indicates SUCCESS
-    print(response.body)
-    print(response.headers)
-
-except Exception as e:
-    print("OOPS" , e.message)
-
-
-    
-
-    #
+#
 # or maybe ...
 #html_content = "Hello <strong>World</strong>"
 #
@@ -47,3 +29,17 @@ except Exception as e:
 #    {html_list_items}
 #</ol>
 #"""
+print("HTML:", html_content)
+
+message = Mail(from_email=MY_ADDRESS, to_emails=MY_ADDRESS, subject=subject, html_content=html_content)
+
+try:
+    response = client.send(message)
+
+    print("RESPONSE:", type(response)) #> <class 'python_http_client.client.Response'>
+    print(response.status_code) #> 202 indicates SUCCESS
+    print(response.body)
+    print(response.headers)
+
+except Exception as e:
+    print("OOPS", e.message)

@@ -100,3 +100,8 @@ print('TOTAL PRICE:  ' + ' $' + '{0:.2f}'.format(final_total))
 print('---------------------')
 print('THANK YOU FOR YOUR BUSINESS! PLEASE COME AGAIN')
 
+## See if Client wants email by receipt
+client_response = input("would you like receipt by e-mail?--Y/N")
+
+
+
